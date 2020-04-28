@@ -1,0 +1,28 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.4.RELEASE" apply(false)
+    id 'java-library'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+group = 'com.epolsoft.fitness'
+version = '0.1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+ext {
+    lombokVersion = '1.18.10'
+    springDataJpaVersion = '2.2.3.RELEASE'
+    javaxPersistanceAPIVersion = '2.2'
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+compileTestJava.options.encoding = "UTF-8"
+compileJava.options.encoding = "UTF-8"

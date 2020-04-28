@@ -1,0 +1,32 @@
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '1.8'
+}
+
+
+lombok {
+    version = rootProject.lombokVersion
+    sha256 = ""
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+dependencies {
+    //Lombok
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+    //Spring
+    compileOnly "org.springframework.data:spring-data-jpa:${rootProject.springDataJpaVersion}"
+
+    compile("javax.persistence:javax.persistence-api:${rootProject.javaxPersistanceAPIVersion}")
+}
